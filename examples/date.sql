@@ -31,7 +31,7 @@ INSERT INTO measures (case_no, dor, measure) VALUES
 
 -- manual aggregation
 SELECT case_no,
-       date 'epoch' + avg(extract(epoch FROM dor)) * interval '1 second' AS dor,
+       (date 'epoch' + avg(extract(epoch FROM dor)) * interval '1 second')::date AS dor,
      avg(measure) as measure
 FROM measures
 GROUP BY case_no
