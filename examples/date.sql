@@ -31,16 +31,16 @@ INSERT INTO measures (case_no, dor, measure) VALUES
 
 -- manual aggregation
 SELECT case_no,
-       (date 'epoch' + avg(extract(epoch FROM dor)) * interval '1 second')::date AS dor,
-     avg(measure) as measure
+       (date 'epoch' + avg(extract(epoch FROM dor)) * interval '1 second')::date AS dor_avg,
+     avg(measure) as measure_avg
 FROM measures
 GROUP BY case_no
 ORDER BY case_no;
 
 -- use date aggregation function
 SELECT case_no,
-       avg(dor) as dor,
-       avg(measure) as measure
+       avg(dor) as dor_avg,
+       avg(measure) as measure_avg
 FROM measures
 GROUP BY case_no
 ORDER BY case_no;
