@@ -44,3 +44,6 @@ SELECT case_no,
 FROM measures
 GROUP BY case_no
 ORDER BY case_no;
+
+-- clean up
+DROP TABLE measures, cases;
